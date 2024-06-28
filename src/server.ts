@@ -12,8 +12,12 @@ const port = 3000;
 
 //ROTAS DE PRODUTO
 app.get('/Produto', async (req, res, next) => {
+  try{
     const response = await axios.get("http://localhost:3001/Produto");
     return res.status(200).json(response.data);
+  } catch {
+    return res.status(500).json({msg: 'Erro no servidor'});
+  }
 });
 
 app.post('/Produto', async (req, res, next) => {
@@ -84,8 +88,12 @@ app.put('/Produto', async (req, res, next) => {
 
 //ROTAS DE VENDA
 app.get('/Venda', async (req, res, next) => {
+  try {
     const response = await axios.get("http://localhost:3002/Venda");
     return res.status(200).json(response.data);
+  } catch (error) {
+    return res.status(500).json({msg: 'Erro no servidor'});
+  }
 });
 
 app.post('/Venda', async (req, res, next) => {
