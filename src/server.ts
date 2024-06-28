@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 app.use(cors({origin:"*"}));
 app.use(express.json());
-const port = process.env.SERVICE_PORT;
+const port = 3000;
 
 //ROTAS DE PRODUTO
 app.get('/Produto', async (req, res, next) => {
