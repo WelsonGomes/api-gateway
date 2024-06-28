@@ -12,7 +12,7 @@ const port = 3000;
 
 //ROTAS DE PRODUTO
 app.get('/Produto', async (req, res, next) => {
-    const response = await axios.get("http://localhost:3001/Produto");
+    const response = await axios.get("http://54.200.107.107:3001/Produto");
     return res.status(200).json(response.data);
 });
 
@@ -20,7 +20,7 @@ app.post('/Produto', async (req, res, next) => {
     try {
         console.log(req.body);
         const resp = await axios.post(
-          "http://localhost:3001/Produto",
+          "http://54.200.107.107:3001/Produto",
           {
             nome: req.body.nome,
             descricao: req.body.descricao,
@@ -46,7 +46,7 @@ app.delete('/Produto', async (req, res, next) => {
     try {
         console.log('ID: ' + req.query.id);
         const resp = await axios.delete(
-          "http://localhost:3001/Produto?id="+req.query.id,
+          "http://54.200.107.107:3001/Produto?id="+req.query.id,
           {
             headers: {
               'Accept': 'application/json',
@@ -66,7 +66,7 @@ app.put('/Produto', async (req, res, next) => {
     try {
         console.log('ID: ' + req.query.id);
         const resp = await axios.put(
-          "http://localhost:3001/Produto?id="+req.query.id+"&qtd="+req.query.qtd,
+          "http://54.200.107.107:3001/Produto?id="+req.query.id+"&qtd="+req.query.qtd,
           {
             headers: {
               'Accept': 'application/json',
@@ -84,14 +84,14 @@ app.put('/Produto', async (req, res, next) => {
 
 //ROTAS DE VENDA
 app.get('/Venda', async (req, res, next) => {
-    const response = await axios.get("http://localhost:3002/Venda");
+    const response = await axios.get("http://52.37.16.114:3002/Venda");
     return res.status(200).json(response.data);
 });
 
 app.post('/Venda', async (req, res, next) => {
   try {
     const vendaResp = await axios.post(
-      "http://localhost:3002/Venda",
+      "http://52.37.16.114:3002/Venda",
       {
         produtoid: req.body.produtoid,
         qtdade: req.body.qtdade,
@@ -115,7 +115,7 @@ app.post('/Venda', async (req, res, next) => {
 app.delete('/Venda', async (req, res, next) => {
   try {
     const vendaResp = await axios.delete(
-      "http://localhost:3002/Venda",
+      "http://52.37.16.114:3002/Venda",
       {
         headers: {
           'Accept': 'application/json',
